@@ -3,19 +3,21 @@ import Button from '../Button/Button'
 import './Header.css'
 
 const Header = ({ title }) => {
+
 	return (
 		<header className='header'>
 			<h1 className='header-title'>
 				{title}
 			</h1>
 
-			<Button/>
+			<Button onClick={() => console.log('Button Clicked')} />
 		</header>
 	)
+
 }
 
 Header.defaultProps = {
-	title: 'Default title header',
+	title: 'Header title',
 }
 
 Header.propTypes = {

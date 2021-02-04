@@ -1,8 +1,10 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #eeeeee;
+  max-width: 500px;
+  min-height: 300px;
+  padding: 30px;
+  margin: 30px auto;
+  overflow: auto;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #f7f7f7;
 }

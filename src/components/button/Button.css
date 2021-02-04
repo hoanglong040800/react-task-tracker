@@ -1,0 +1,10 @@
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-btn-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}

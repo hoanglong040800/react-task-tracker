@@ -1,17 +1,18 @@
-const Button = ({ title, bgColor, textColor }) => {
-    return (
-        <button
-            style={{ backgroundColor: bgColor, color: textColor }}
-        >
-            {title}
-        </button>
-    )
+import './Button.css'
+
+const Button = ({ title, bgColor, txtColor }) => {
+	return (
+		<button
+			className='btn'
+			style={{ backgroundColor: bgColor, color: txtColor }}
+		>
+			{title}
+		</button>
+	)
 }
 
 Button.defaultProps = {
-    bgColor: '#333',
-    title: 'Button',
-    textColor: '#fff',
+	title: 'Button Title',
 }
 
 export default Button

@@ -1,11 +1,11 @@
-import Header from '../../components/header/Header'
+import Header from '../../components/Header/Header'
 import './App.css'
-import './reset.css'
+import './base.css'
 
 const App = () => {
   return (
     <div className='container'>
-      <Header className='header'/>
+      <Header className='header' title='React Task Tracker' />
     </div>
   )
 }

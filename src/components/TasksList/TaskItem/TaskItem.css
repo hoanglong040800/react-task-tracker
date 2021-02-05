@@ -1,7 +1,28 @@
 .task-item-container{
-    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
 }
 
-.task-item{
+.icon-del{
+    color: #ff3131;
+    font-size: 22px;
+}
+
+.icon-del:hover{
+    color: #fc4d4d;
+    cursor: pointer;
+}
+
+.icon-alarm{
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.icon-alarm:hover{
+    cursor: pointer;
 }

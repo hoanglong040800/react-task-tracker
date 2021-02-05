@@ -1,11 +1,34 @@
 import './TaskItem.css'
+import { TiDelete } from "react-icons/ti";
+import { BsAlarmFill, BsAlarm } from "react-icons/bs"
 
-const TaskItem = ({ id, text, time, reminder }) => {
+const TaskItem = ({ task, onDelete, onToggle }) => {
   return (
     <div className='task-item-container'>
-      <p className='task-item'>{text}</p>
-      <p className='task-item'>{time}</p>
-      <p className='task-item'>{reminder}</p>
+
+      <div className="task-item__text">
+        <h4 className='task-item'>{task.text}</h4>
+        <p className='task-item'>{task.time}</p>
+        {
+          task.reminder
+            ? (
+              <BsAlarmFill
+                className='icon-alarm'
+                onClick={() => onToggle(task.id)}
+              />
+            ) : (
+              <BsAlarm
+                className='icon-alarm'
+                onClick={() => onToggle(task.id)}
+              />
+            )
+        }
+      </div>
+
+      <TiDelete
+        className='icon-del'
+        onClick={() => onDelete(task.id, task.text)}
+      />
     </div>
   )
 }

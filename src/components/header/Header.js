@@ -10,7 +10,10 @@ const Header = ({ title }) => {
 				{title}
 			</h1>
 
-			<Button onClick={() => console.log('Button Clicked')} />
+			<Button
+				title='Add Task'
+				onClick={() => console.log('Button Clicked')}
+			/>
 		</header>
 	)
 

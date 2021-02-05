@@ -1,14 +1,68 @@
+import { useState } from 'react'
 import './App.css'
 import './base.css'
 import Header from '../../components/Header/Header'
 import TasksList from '../../components/TasksList/TasksList'
 
 const App = () => {
+	const [tasksList, setTasksList] = useState(
+		[
+			{
+				id: 1,
+				text: 'Clean up',
+				time: '6:30 AM',
+				reminder: true,
+			},
+			{
+				id: 2,
+				text: 'Eat breakfast',
+				time: '7:00 AM',
+				reminder: false,
+			},
+			{
+				id: 3,
+				text: 'Learn ReactJS',
+				time: '7:30 AM',
+				reminder: true,
+			},
+		]
+	)
+
+	// Delete Task
+	const deleteTask = (id) => {
+		setTasksList(
+			tasksList.filter((el) => el.id !== id)
+		)
+	}
+
+	// Toggle Reminder
+	const toggleReminder = (id) => {
+		setTasksList(
+			tasksList.map((el) =>
+				console.log('[Toggle]', el.id)
+			)
+		)
+	}
+
+
 	return (
 		<div className='container'>
 			<Header className='header' title='React Task Tracker' />
 
-			<TasksList />
+			{
+				tasksList.length > 0
+					? (
+						<TasksList
+							tasksList={tasksList}
+							onDelete={deleteTask}
+							onToggle={toggleReminder}
+						/>
+					) : (
+						<p style={{ marginTop: 20 }}>
+							No task to show
+						</p>
+					)
+			}
 		</div>
 	)
 }

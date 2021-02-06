@@ -1,6 +1,9 @@
-.task-item__container{
+.task-item__container {
     display: flex;
     margin: 20px 0;
+    -webkit-box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.1);
 }
 
 .task-item__main {
@@ -13,14 +16,14 @@
     border-radius: 5px;
 }
 
-.task-item__reminder{
+.task-item__reminder {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
 
-.task-item__reminder:hover{
+.task-item__reminder:hover {
     cursor: pointer;
 }
 
@@ -30,7 +33,7 @@
 }
 
 .icon-del:hover {
-    color: #fc4d4d;
+    color: #ff6464;
     cursor: pointer;
 }
 

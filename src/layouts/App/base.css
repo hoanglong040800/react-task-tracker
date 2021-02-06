@@ -5,6 +5,17 @@
     --text-btn-color: #fff;
 }
 
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-btn-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
 body {
     color: var(--text-color);
     font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -30,10 +41,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     outline: 0;
 }
 
-button {
+button, input[type='submit'] {
     border: none;
 }
 
-button:hover{
+button:hover, input[type='submit']:hover {
     cursor: pointer;
 }

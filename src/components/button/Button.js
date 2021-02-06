@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import './Button.css'
 
 const Button = ({ title, bgColor, txtColor, onClick }) => {
 

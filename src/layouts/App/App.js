@@ -3,6 +3,7 @@ import './App.css'
 import './base.css'
 import Header from '../../components/Header/Header'
 import TasksList from '../../components/TasksList/TasksList'
+import AddTask from '../../components/AddTask/AddTask'
 
 const App = () => {
 	const [tasksList, setTasksList] = useState(
@@ -50,6 +51,8 @@ const App = () => {
 	return (
 		<div className='container'>
 			<Header className='header' title='React Task Tracker' />
+
+			<AddTask />
 
 			{
 				tasksList.length > 0

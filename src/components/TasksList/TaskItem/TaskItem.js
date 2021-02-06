@@ -1,6 +1,6 @@
 import './TaskItem.css'
 import { TiDelete } from "react-icons/ti";
-import { BsAlarmFill, BsAlarm } from "react-icons/bs"
+import { BsAlarm } from "react-icons/bs"
 
 const TaskItem = ({ task, onDelete, onToggle }) => {
   return (

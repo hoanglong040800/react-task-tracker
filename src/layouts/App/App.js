@@ -6,6 +6,8 @@ import TasksList from '../../components/TasksList/TasksList'
 import AddTask from '../../components/AddTask/AddTask'
 
 const App = () => {
+	const [showAddTask, setShowAddTask] = useState(false)
+
 	const [tasksList, setTasksList] = useState(
 		[
 			{
@@ -47,12 +49,34 @@ const App = () => {
 		)
 	}
 
+	// Add Task
+	const addTask = (task) => {
+		let id = tasksList
+			? tasksList[tasksList.length - 1].id + 1
+			: 1
+		let newTask = { id, ...task }
+		setTasksList([...tasksList, newTask])
+	}
+
+	// Toggle Add Task
+	const toggleAddTask = () => {
+		setShowAddTask(!showAddTask)
+	}
+
 
 	return (
 		<div className='container'>
-			<Header className='header' title='React Task Tracker' />
+			<Header
+				className='header'
+				title='React Task Tracker'
+				onShowAddTask={toggleAddTask}
+			/>
 
-			<AddTask />
+			{
+				showAddTask
+					? <AddTask onAdd={addTask} />
+					: null
+			}
 
 			{
 				tasksList.length > 0

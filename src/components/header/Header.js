@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from '../Button/Button'
 import './Header.css'
 
-const Header = ({ title }) => {
+const Header = ({ title, onShowAddTask }) => {
 
 	return (
 		<header className='header'>
@@ -12,7 +12,7 @@ const Header = ({ title }) => {
 
 			<Button
 				title='Add Task'
-				onClick={() => console.log('Button Clicked')}
+				onClick={onShowAddTask}
 			/>
 		</header>
 	)

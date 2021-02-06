@@ -1,28 +1,40 @@
-.task-item-container{
+.task-item__container{
+    display: flex;
+    margin: 20px 0;
+}
+
+.task-item__main {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 0;
-    padding: 10px;
+    padding: 15px 20px;
     background-color: #f8f8f8;
     border-radius: 5px;
 }
 
-.icon-del{
+.task-item__reminder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.task-item__reminder:hover{
+    cursor: pointer;
+}
+
+.icon-del {
     color: #ff3131;
     font-size: 22px;
 }
 
-.icon-del:hover{
+.icon-del:hover {
     color: #fc4d4d;
     cursor: pointer;
 }
 
-.icon-alarm{
+.icon-alarm {
     margin-top: 5px;
     font-size: 15px;
-}
-
-.icon-alarm:hover{
-    cursor: pointer;
 }

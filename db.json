@@ -1,0 +1,16 @@
+{
+  "taskList": [
+    {
+      "id": 1,
+      "text": "Breakfast",
+      "time": "6:30",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Go to school",
+      "time": "13:20",
+      "reminder": true
+    }
+  ]
+}

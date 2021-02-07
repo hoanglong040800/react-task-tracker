@@ -1,11 +1,11 @@
 import TaskItem from './TaskItem/TaskItem'
 
-const TasksList = ({ tasksList, onDelete,onToggle}) => {
+const TaskList = ({ taskList, onDelete, onToggle }) => {
 
   return (
-    <>
+    <div style={{ marginTop: 40 }}>
       {
-        tasksList.map((el) =>
+        taskList.map((el) =>
           <TaskItem
             key={el.id}
             task={el}
@@ -14,8 +14,8 @@ const TasksList = ({ tasksList, onDelete,onToggle}) => {
           />
         )
       }
-    </>
+    </div>
   )
 }
 
-export default TasksList
+export default TaskList

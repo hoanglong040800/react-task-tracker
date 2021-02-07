@@ -1,47 +1,40 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import './base.css'
 import Header from '../../components/Header/Header'
-import TasksList from '../../components/TasksList/TasksList'
+import TaskList from '../../components/TaskList/TaskList'
 import AddTask from '../../components/AddTask/AddTask'
 
 const App = () => {
 	const [showAddTask, setShowAddTask] = useState(false)
 
-	const [tasksList, setTasksList] = useState(
-		[
-			{
-				id: 1,
-				text: 'Clean up',
-				time: '6:30 AM',
-				reminder: true,
-			},
-			{
-				id: 2,
-				text: 'Eat breakfast',
-				time: '7:00 AM',
-				reminder: false,
-			},
-			{
-				id: 3,
-				text: 'Learn ReactJS',
-				time: '7:30 AM',
-				reminder: true,
-			},
-		]
-	)
+	const [taskList, setTaskList] = useState([])
+
+	// useEffect
+	useEffect(() => {
+
+
+		getTaskList()
+	}, [])
+
+	// Get Tasks List
+	const getTaskList = async () => {
+		const response = await fetch('http://localhost:5000/taskList')
+		const data = await response.json()
+		setTaskList(data)
+	}
 
 	// Delete Task
 	const deleteTask = (id) => {
-		setTasksList(
-			tasksList.filter((el) => el.id !== id)
+		setTaskList(
+			taskList.filter((el) => el.id !== id)
 		)
 	}
 
 	// Toggle Reminder
 	const toggleReminder = (id) => {
-		setTasksList(
-			tasksList.map((el) =>
+		setTaskList(
+			taskList.map((el) =>
 				el.id === id
 					? { ...el, reminder: !el.reminder }
 					: el
@@ -51,11 +44,11 @@ const App = () => {
 
 	// Add Task
 	const addTask = (task) => {
-		let id = tasksList
-			? tasksList[tasksList.length - 1].id + 1
+		const id = taskList
+			? taskList[taskList.length - 1].id + 1
 			: 1
-		let newTask = { id, ...task }
-		setTasksList([...tasksList, newTask])
+		const newTask = { id, ...task }
+		setTaskList([...taskList, newTask])
 	}
 
 	// Toggle Add Task
@@ -69,6 +62,7 @@ const App = () => {
 			<Header
 				className='header'
 				title='React Task Tracker'
+				showAddTask={showAddTask}
 				onShowAddTask={toggleAddTask}
 			/>
 
@@ -79,18 +73,13 @@ const App = () => {
 			}
 
 			{
-				tasksList.length > 0
-					? (
-						<TasksList
-							tasksList={tasksList}
-							onDelete={deleteTask}
-							onToggle={toggleReminder}
-						/>
-					) : (
-						<p style={{ marginTop: 20 }}>
-							No task to show
-						</p>
-					)
+				taskList.length > 0
+					? <TaskList
+						taskList={taskList}
+						onDelete={deleteTask}
+						onToggle={toggleReminder}
+					/>
+					: <p style={{ marginTop: 20 }}>No task to show</p>
 			}
 		</div>
 	)

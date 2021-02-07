@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from '../Button/Button'
 import './Header.css'
 
-const Header = ({ title, onShowAddTask }) => {
+const Header = ({ title, showAddTask, onShowAddTask }) => {
 
 	return (
 		<header className='header'>
@@ -11,7 +11,8 @@ const Header = ({ title, onShowAddTask }) => {
 			</h1>
 
 			<Button
-				title='Add Task'
+				title={showAddTask ? 'Close' : 'Add Task'}
+				bgColor={showAddTask ? '#ff5959' : 'var(--primary-color)'}
 				onClick={onShowAddTask}
 			/>
 		</header>

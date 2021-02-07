@@ -15,7 +15,7 @@ const AddTask = ({ onAdd }) => {
   }
 
   return (
-    <form className='form-add' onSubmit={onSubmit}>
+    <form className='form-add fade-in' onSubmit={onSubmit}>
 
       <div className="form-control">
         <label>Text</label>
@@ -31,7 +31,6 @@ const AddTask = ({ onAdd }) => {
         <label>Time</label>
         <input
           type='time'
-          placeholder='Add Time'
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />

@@ -5,9 +5,9 @@ const TaskList = ({ taskList, onDelete, onToggle }) => {
   return (
     <div style={{ marginTop: 40 }}>
       {
-        taskList.map((el) =>
+        taskList.map((el, index) =>
           <TaskItem
-            key={el.id}
+            key={index}
             task={el}
             onDelete={onDelete}
             onToggle={onToggle}

@@ -3,13 +3,13 @@
     {
       "id": 1,
       "text": "Breakfast",
-      "time": "6:30",
-      "reminder": true
+      "time": "10:00",
+      "reminder": false
     },
     {
       "id": 2,
-      "text": "Go to school",
-      "time": "13:20",
+      "text": "Learn ReactJS",
+      "time": "20:00",
       "reminder": true
     }
   ]

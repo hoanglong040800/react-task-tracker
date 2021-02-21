@@ -5,7 +5,7 @@ import { BsAlarm } from "react-icons/bs"
 const TaskItem = ({ task, onDelete, onToggle }) => {
   return (
 
-    <div className='task-item__container' >
+    <div className='task-item__container scale-up-center' >
 
       {/* Reminder */}
       <div

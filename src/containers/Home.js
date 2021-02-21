@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import './base.css'
-import Header from '../../components/Header/Header'
-import TaskList from '../../components/TaskList/TaskList'
-import AddTask from '../../components/AddTask/AddTask'
 
-const App = () => {
+import Header from '../components/Header/Header'
+import TaskList from '../components/TaskList/TaskList'
+import AddTask from '../components/AddTask/AddTask'
+import Footer from '../components/Footer/Footer'
+
+
+const Home = () => {
 	const [showAddTask, setShowAddTask] = useState(false)
 
 	const [taskList, setTaskList] = useState([])
@@ -18,6 +19,7 @@ const App = () => {
 		const response = await fetch('http://localhost:5000/taskList')
 		const data = await response.json()
 		setTaskList(data)
+
 	}
 
 	const addTask = async (task) => {
@@ -28,6 +30,8 @@ const App = () => {
 			},
 			body: JSON.stringify(task),
 		})
+
+		setShowAddTask(false)
 	}
 
 	const deleteTask = async (id) => {
@@ -61,7 +65,7 @@ const App = () => {
 
 
 	return (
-		<div className='container'>
+		<div>
 			<Header
 				className='header'
 				title='React Task Tracker'
@@ -84,8 +88,10 @@ const App = () => {
 					/>
 					: <p style={{ marginTop: 20 }}>No task to show</p>
 			}
+
+			<Footer />
 		</div>
 	)
 }
 
-export default App;
+export default Home;

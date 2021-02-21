@@ -10,18 +10,23 @@ const Header = ({ title, showAddTask, onShowAddTask }) => {
 				{title}
 			</h1>
 
-			<Button
-				title={showAddTask ? 'Close' : 'Add Task'}
-				bgColor={showAddTask ? '#ff5959' : 'var(--primary-color)'}
-				onClick={onShowAddTask}
-			/>
+			{
+				showAddTask == true || showAddTask == false
+					? <Button
+						title={showAddTask ? 'Close' : 'Add Task'}
+						bgColor={showAddTask ? '#ff5959' : 'var(--primary-color)'}
+						onClick={onShowAddTask}
+					/>
+					: null
+			}
+
 		</header>
 	)
 
 }
 
 Header.defaultProps = {
-	title: 'Header title',
+	title: 'React Task Tracker',
 }
 
 Header.propTypes = {

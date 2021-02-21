@@ -2,8 +2,8 @@
   "taskList": [
     {
       "id": 1,
-      "text": "Breakfast",
-      "time": "10:00",
+      "text": "Eat Breakfast",
+      "time": "7:30",
       "reminder": false
     },
     {

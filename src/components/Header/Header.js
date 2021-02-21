@@ -11,7 +11,7 @@ const Header = ({ title, showAddTask, onShowAddTask }) => {
 			</h1>
 
 			{
-				showAddTask == true || showAddTask == false
+				showAddTask === true || showAddTask === false
 					? <Button
 						title={showAddTask ? 'Close' : 'Add Task'}
 						bgColor={showAddTask ? '#ff5959' : 'var(--primary-color)'}

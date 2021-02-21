@@ -12,51 +12,64 @@ const Home = () => {
 	const [taskList, setTaskList] = useState([])
 
 	useEffect(() => {
-		getTaskList()
-	}, [taskList])
+		fetchTask()
+	}, [])
 
-	const getTaskList = async () => {
-		const response = await fetch('http://localhost:5000/taskList')
-		const data = await response.json()
+	const fetchTask = async (id = '') => {
+		const res = await fetch(`https://my-json-server.typicode.com/hoanglong040800/react-task-tracker/taskList/${id}`)
+		const data = await res.json()
 		setTaskList(data)
-
 	}
 
 	const addTask = async (task) => {
-		await fetch('http://localhost:5000/taskList', {
-			method: 'POST',
-			headers: {
-				'Content-type': 'application/json',
-			},
-			body: JSON.stringify(task),
-		})
+		// await fetch('https://my-json-server.typicode.com/hoanglong040800/react-task-tracker/taskList', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(task),
+		// })
 
+		// front-end add
+		const newId = taskList[taskList.length - 1].id + 1
+		const newTask = { newId, ...task }
+		setTaskList([...taskList, newTask])
+
+		// Close Add Task form
 		setShowAddTask(false)
 	}
 
 	const deleteTask = async (id) => {
-		await fetch(`http://localhost:5000/taskList/${id}`, {
-			method: 'DELETE',
-		})
-	}
+		// await fetch(`https://my-json-server.typicode.com/hoanglong040800/react-task-tracker/taskList/${id}`, {
+		// 	method: 'DELETE',
+		// })
 
-	const fetchTask = async (id) => {
-		const res = await fetch(`http://localhost:5000/taskList/${id}`)
-		const data = await res.json()
-		return data
+		// front-end delete
+		setTaskList(
+			taskList.filter(el => el.id !== id)
+		)
 	}
 
 	const toggleReminder = async (id) => {
-		const curTask = await fetchTask(id)
-		const newTask = { ...curTask, reminder: !curTask.reminder }
+		// const curTask = await fetchTask(id)
+		// const newTask = { ...curTask, reminder: !curTask.reminder }
 
-		await fetch(`http://localhost:5000/taskList/${id}`, {
-			method: 'PUT',
-			headers: {
-				'Content-type': 'application/json',
-			},
-			body: JSON.stringify(newTask)
-		})
+		// await fetch(`https://my-json-server.typicode.com/hoanglong040800/react-task-tracker/taskList/${id}`, {
+		// 	method: 'PUT',
+		// 	headers: {
+		// 		'Content-type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(newTask)
+		// })
+
+		// front-end toggle
+		setTaskList(
+			taskList.map(el =>
+				el.id === id
+					? { ...el, reminder: !el.reminder }
+					: el
+			)
+		)
 	}
 
 	const toggleAddTask = () => {
